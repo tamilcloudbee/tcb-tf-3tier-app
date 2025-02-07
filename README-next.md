@@ -1,3 +1,4 @@
+Here’s the complete `README.md` file with all the information and steps integrated:
 
 ```markdown
 # Student Course Enquiry Application Deployment Guide
@@ -61,8 +62,8 @@ This application is hosted on AWS and follows a multi-tier architecture with the
 
 ### EC2 Instances and Application Flow
 
-- **EC2 Instance 1 (Web Server-FASTApi-MYSQLDB)**: Hosts an Apache web server with a student enquiry form. The form sends data to FastAPI on the backend.
-                                   Runs the FastAPI application, which processes the form data and saves it to a MySQL database.
+- **EC2 Instance 1 (Web Server)**: Hosts an Apache web server with a student enquiry form. The form sends data to FastAPI on the backend.
+- **EC2 Instance 2 (FastAPI & MySQL)**: Runs the FastAPI application, which processes the form data and saves it to a MySQL database.
 - **MySQL Database**: Stores the data submitted by the students (name, email, phone, query, and course).
 - **Security Groups**: Defined to allow communication between Apache and FastAPI on the relevant ports (80 for Apache and 8000 for FastAPI).
 
