@@ -9,14 +9,16 @@ resource "aws_security_group" "ec2_sg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    security_groups = [aws_security_group.alb_sg.id]  # Allow traffic from ALB's SG
+    cidr_blocks = ["0.0.0.0/0"]
+    #security_groups = [aws_security_group.alb_sg.id]  # Allow traffic from ALB's SG
   }
 
     ingress {
     from_port   = 8000
     to_port     = 8000
     protocol    = "tcp"
-    security_groups = [aws_security_group.alb_sg.id]  # Allow traffic from ALB's SG
+    cidr_blocks = ["0.0.0.0/0"]
+    #security_groups = [aws_security_group.alb_sg.id]  # Allow traffic from ALB's SG
   }
 
   egress {
@@ -31,7 +33,7 @@ resource "aws_security_group" "ec2_sg" {
   }
 }
 
-
+/*
 resource "aws_security_group" "alb_sg" {
   name        = "${var.resource_prefix}-alb-sg"
   description = "Allow traffic from ALB to EC2 instances"
@@ -55,3 +57,4 @@ resource "aws_security_group" "alb_sg" {
     Name = "${var.resource_prefix}-alb-sg"
   }
 }
+*/
