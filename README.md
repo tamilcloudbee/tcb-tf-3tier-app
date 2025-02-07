@@ -54,10 +54,10 @@ This application is hosted on AWS and follows a multi-tier architecture with the
 | **Resource**       | **CIDR Block**          | **Description**                                      |
 |--------------------|-------------------------|------------------------------------------------------|
 | **VPC**            | `172.16.0.0/16`         | Virtual Private Cloud (VPC) for networking isolation. |
-| **Public Subnet 1**| `172.16.1.0/24`         | Subnet for public-facing EC2 instances (Apache Server). |
-| **Private Subnet 1**| `172.16.2.0/24`        | Subnet for private resources (FastAPI, MySQL).       |
-| **Public Subnet 2**| `172.16.3.0/24`         | Additional public-facing subnet (if needed).         |
-| **Private Subnet 2**| `172.16.4.0/24`        | Additional private subnet for scaling.               |
+| **Public Subnet 1**| `172.16.1.0/24`         | Public-facing EC2 instance (Apache Server , FastAPI, MySQL). |
+| **Private Subnet 1**| `172.16.2.0/24`        |      |
+
+![Application Architecture](images/app-archi-monolith.png)
 
 ### EC2 Instances and Application Flow
 
