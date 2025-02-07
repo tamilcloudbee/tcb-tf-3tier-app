@@ -28,12 +28,14 @@ module "ec2_a" {
   source              = "./modules/ec2"
   instance_type       = "t2.micro"
   public_subnet_id    = module.vpc_a.public_subnet_1_id
-  user_data           = file("user-data-admin.sh")
+  user_data           = file("user-data-fastapi-mysql-monolith.sh")
   key_name            = var.key_name
   env_name            = "dev_a"
   security_group_id   = module.sg_a.security_group_id
   resource_prefix     = var.resource_prefix
 }
+
+/*
 
 module "ec2_b" {
   source              = "./modules/ec2"
@@ -46,6 +48,9 @@ module "ec2_b" {
   resource_prefix     = var.resource_prefix
 }
 
+*/
+
+/*
 module "alb" {
   source               = "./modules/alb"
   resource_prefix      = var.resource_prefix
@@ -65,3 +70,4 @@ module "alb" {
     "register_instance_1" = module.ec2_b.public_instance_id
   }
 }
+*/

@@ -12,6 +12,13 @@ resource "aws_security_group" "ec2_sg" {
     security_groups = [aws_security_group.alb_sg.id]  # Allow traffic from ALB's SG
   }
 
+    ingress {
+    from_port   = 8000
+    to_port     = 8000
+    protocol    = "tcp"
+    security_groups = [aws_security_group.alb_sg.id]  # Allow traffic from ALB's SG
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
