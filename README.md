@@ -126,9 +126,10 @@ The setup of Apache, MySQL, FastAPI, and the required MySQL database configurati
 
 7. **Verify Data in MySQL**
    To verify that the form submissions are saved in the MySQL database, SSH into the EC2 instance using the key pair you created:
+   CLick on EC2 and click on Connect and choose SSH client TAB to get the ssh details with public IP-address
 
    ```bash
-   ssh -i /path/to/your-key.pem ec2-user@<public-ip>
+   ssh -i /path/to/your-key.pem ubuntu@<public-ip>
    ```
 
    Log in to the MySQL database:
