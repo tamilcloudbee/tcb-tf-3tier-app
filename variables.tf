@@ -38,3 +38,18 @@ variable "key_name" {
   description = "Key for EC@ instance"
   type        = string
 }
+
+/*
+variable "egress_rules" {
+  description = "List of egress rules for the security group"
+  type = list(object({
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
+}
+
+*/
+
+variable "common_egress_rules" {}
