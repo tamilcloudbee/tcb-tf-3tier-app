@@ -10,13 +10,13 @@ variable "private_cidr_1" {
   type        = string
 }
 
-/*
+
 variable "public_cidr_2" {
   description = "CIDR block for the second public subnet"
   type        = string
 }
 
-
+/*
 variable "private_cidr_2" {
   description = "CIDR block for the second private subnet"
   type        = string

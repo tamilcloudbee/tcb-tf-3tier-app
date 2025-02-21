@@ -1,44 +1,27 @@
-variable "resource_prefix" {
-  description = "Prefix for resources"
+variable "project_name" {
+  description = "Project name used for naming resources"
   type        = string
 }
 
-variable "load_balancer_type" {
-  description = "The type of load balancer (e.g., application or network)"
-  type        = string
+variable "public_subnets" {
+  description = "List of public subnets where ALB will be deployed"
+  type        = list(string)
 }
 
 variable "vpc_id" {
-  description = "The VPC ID"
+  description = "VPC ID where the ALB will be deployed"
   type        = string
 }
 
-variable "public_subnet_ids" {
-  description = "List of public subnet IDs"
-  type        = list(string)
-}
-
-variable "security_group_ids" {
-  description = "List of security group IDs"
-  type        = list(string)
-}
-
-variable "env_name" {
-  description = "Environment name"
+variable "frontend_instance_id" {
+  description = "ID of the frontend EC2 instance to attach to ALB target group"
   type        = string
 }
 
-variable "main_instance_ids" {
-  description = "Map of main EC2 instance IDs"
-  type        = map(string)
-}
 
-variable "admin_instance_ids" {
-  description = "Map of admin EC2 instance IDs"
-  type        = map(string)
-}
+# REMOVE THIS from variables.tf
+# variable "alb_security_group" {
+#   description = "Security group for the ALB"
+#   type        = string
+# }
 
-variable "register_instance_ids" {
-  description = "Map of register EC2 instance IDs"
-  type        = map(string)
-}

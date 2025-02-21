@@ -22,11 +22,9 @@ chown -R www-data:www-data /var/www/html
 chmod -R 755 /var/www/html
 
 # Replace API endpoint in frontend files with App Tier private IP
-APP_TIER_IP="APP_TIER_PRIVATE_IP"  # This should be replaced dynamically in Terraform
-
 echo "Updating API endpoint in frontend..."
-sed -i "s|your-alb-url.com|$APP_TIER_IP:8000|g" /var/www/html/register/index.html
-sed -i "s|your-alb-url.com|$APP_TIER_IP:8000|g" /var/www/html/admin/index.html
+sed -i "s|your-alb-url.com|${APP_TIER_PRIVATE_IP}:8000|g" /var/www/html/register/index.html
+sed -i "s|your-alb-url.com|${APP_TIER_PRIVATE_IP}:8000|g" /var/www/html/admin/index.html
 
 # Configure Apache as a Reverse Proxy
 echo "Configuring Apache as a Reverse Proxy..."
@@ -47,8 +45,8 @@ cat <<EOF > /etc/apache2/sites-available/000-default.conf
         Require all granted
     </Directory>
 
-    ProxyPass /api http://$APP_TIER_IP:8000/
-    ProxyPassReverse /api http://$APP_TIER_IP:8000/
+    ProxyPass /api http://${APP_TIER_PRIVATE_IP}:8000/
+    ProxyPassReverse /api http://${APP_TIER_PRIVATE_IP}:8000/
 </VirtualHost>
 EOF
 
